@@ -78,8 +78,8 @@
 		</div>
 	</section>
 
-	<section class="flex h-full w-1/3 flex-col items-end justify-end gap-2">
-		<div class="flex flex-col items-center justify-end pb-8 pr-8">
+	<section class="flex h-full w-1/3 flex-col items-end justify-end">
+		<div class="flex flex-col items-center justify-end pb-8 pr-8 gap-2">
 			<h2 class="text-4xl text-white">ASTERILIT</h2>
 			<img src="/icons/ASTERILIT.svg" alt="asterilit as barcode" class="h-10" />	
 		</div>
