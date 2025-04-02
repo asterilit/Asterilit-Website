@@ -41,7 +41,7 @@
 		<div
 			class="grid aspect-square w-1/3 grid-cols-3 bg-[linear-gradient(135deg,_#00FF00_10%,_blue_100%)] bg-clip-text text-transparent"
 		>
-			{#each hexValues as hex}
+			{#each hexValues as hex (hex)}
 				<div class="cell transition-fade text-4xl font-bold">{hex}</div>
 			{/each}
 		</div>
@@ -51,7 +51,7 @@
 	<section
 		class="flex h-full w-1/3 flex-col items-center justify-center gap-1.5 bg-[linear-gradient(180deg,_white_10%,_blue_100%)] bg-clip-text text-transparent"
 	>
-		{#each textData as item}
+		{#each textData as item (item)}
 			<p class="text-4xl font-semibold">
 				{item.letter}
 				{item.binary}
