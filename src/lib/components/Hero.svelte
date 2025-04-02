@@ -1,49 +1,41 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-    import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte'; 
 
-	let words: string[] = [
-		// Asterilit
-		"est010425", "asterilit", 
-		// XCUB
+	let words: string[] = [ 
+		// Asterilit 
+		"est010425", "asterilit",
+		// XCUB 
 		"GussDX", "XCUB", "Oafa", "Ganshi", "Dravin", "est030324", "Blanchete",
-		// Vanyard
-		"Vanyard", "Stardust"
-	];
-
-	function wordToHexGrid(word: string): string[] {
-		const encoder = new TextEncoder();
+		// Vanyard 
+		"Vanyard", "Stardust",
+	]; 
+	
+	function wordToHexGrid(word: string): string[] { 
+		const encoder = new TextEncoder(); 
 		let hex = Array
-            .from(encoder.encode(word))
-            .map((b) => b.toString(16).padStart(2, '0'));
-
-        if (hex.length < 9) {
-            while (hex.length < 8) {
-                hex.unshift("00")
-            };
-		    hex.unshift('0x');
-        } else {
-			console.log(word);
+			.from(encoder.encode(word))
+			.map((b) => b.toString(16).padStart(2, '0')); 
 			
-            return [
-                "0x","00","00", 
-                "00","65","72",
-                "72","6f","72"
-            ];
-        };
-		return hex;
+		if (hex.length === 9) return hex;
+
+		if (hex.length < 9) { 
+			while (hex.length < 8) { 
+				hex.unshift("00") 
+			};
+
+			hex.unshift('0x'); 
+		}; 
+		
+		return hex; 
 	};
-
-	let hexValues: string[] = wordToHexGrid(words[0]);
-
-	onMount(() => {
-		setInterval(
-			() => {
-				const randomWord = words[Math.floor(Math.random() * words.length)];
-				hexValues = wordToHexGrid(randomWord);
-			},
-			Math.random() * 2000 + 1000
-		);
+	
+	let hexValues: string[] = wordToHexGrid(words[0]); 
+	
+	onMount(() => { 
+		setInterval(() => { 
+			const randomWord = words[Math.floor(Math.random() * words.length)]; 
+			hexValues = wordToHexGrid(randomWord); 
+		}, Math.random() * 2000 + 1000 ); 
 	});
 
 	const textData = [
@@ -65,20 +57,18 @@
 		<div
 			class="grid aspect-square w-1/3 grid-cols-3 bg-[linear-gradient(135deg,_#00FF00_10%,_blue_100%)] bg-clip-text text-transparent"
 		>
-			{#each hexValues as hex, index (index)}
+			{#each hexValues as hex, index (hex + index)}
 				<div 
-                    class="cell transition-fade text-4xl font-bold"
-                    in:fade={{ duration: 100 }}
-                    out:fade={{ duration: 100 }}>
-                    {hex}
-                </div>
+					class="cell flex h-16 w-16 items-center justify-center text-4xl font-bold">
+					{ hex }
+				</div>
 			{/each}
 		</div>
 	</section>
 
 	<!-- 🚮 Binary -->
-	<section class="flex h-full w-1/3 flex-col items-center justify-center gap-1.5">
-		<div class="bg-[linear-gradient(180deg,_white_5%,_blue_100%)] bg-clip-text text-transparent">
+	<section class="h-full w-1/3 flex items-center justify-center">
+		<div class="flex flex-col gap-2 bg-[linear-gradient(180deg,_white_5%,_blue_100%)] bg-clip-text text-transparent">
 			{#each textData as item (item.id)}
 				<p class="text-4xl font-semibold">
 					{item.letter}
@@ -88,8 +78,8 @@
 		</div>
 	</section>
 
-	<section class="flex h-full w-1/3 flex-col items-center justify-end gap-2 pb-8">
-		<div class="flex flex-col ml-60">
+	<section class="flex h-full w-1/3 flex-col items-end justify-end gap-2">
+		<div class="flex flex-col items-center justify-end pb-8 pr-8">
 			<h2 class="text-4xl text-white">ASTERILIT</h2>
 			<img src="/icons/ASTERILIT.svg" alt="asterilit as barcode" class="h-10" />	
 		</div>
