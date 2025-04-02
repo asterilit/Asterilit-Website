@@ -6,7 +6,7 @@
 <nav class="bg-[linear-gradient(180deg,_black_15%,_transparent_100%)] w-screen h-20 flex flex-row fixed">
     <div class="w-1/2 h-full flex items-center pl-4">
         <a href="/" draggable="false" class="aspect-square max-h-full">
-            <img src="/images/logo.svg" alt="Asterilit logo" draggable="false" class="h-full">
+            <img src="/images/logo.svg" alt="Asterilit logo" draggable="false" class="h-full select-none">
         </a>
     </div>
 

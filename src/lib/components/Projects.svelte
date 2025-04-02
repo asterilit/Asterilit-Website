@@ -41,7 +41,7 @@
 					on:mouseenter={() => selectProject(project)}
 					on:mouseleave={clearProject}
 				>
-					<img src="/icons/prompt.svg" alt="" class="h-12" />
+					<img src="/icons/prompt.svg" alt="" class="h-12 select-none" />
 					<p class="text-2xl text-white">{project.name}</p>
 				</li>
 			{/each}
@@ -66,7 +66,7 @@
 			<img
 				src={selectedProject.image}
 				alt={selectedProject.description}
-				class="mt-6 inline h-auto w-1/2 rounded-lg shadow-lg"
+				class="mt-6 inline h-auto w-1/2 rounded-lg shadow-lg select-none"
 				in:fly={{ duration: 200, y: 100, delay: 150, opacity: 0 }}
 				out:fly={{ duration: 150, x: 70, delay: 120 }}
 			/>
