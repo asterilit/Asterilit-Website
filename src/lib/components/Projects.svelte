@@ -11,7 +11,7 @@
 		{
 			name: 'Vanyard',
 			description: 'Sigma Sigma boy Sigma boy Sigma boy Sigma Sigma boy Sigma boy',
-			image: '/images/xcub-project.png'
+			image: '/images/vanyard-project.png'
 		},
 		{
 			name: 'Xcub',
@@ -68,7 +68,7 @@
 				alt={selectedProject.description}
 				class="mt-6 inline h-auto w-1/2 rounded-lg shadow-lg"
 				in:fly={{ duration: 200, y: 100, delay: 150, opacity: 0 }}
-				out:fly={{ duration: 150, x: 70, delay: 100 }}
+				out:fly={{ duration: 150, x: 70, delay: 120 }}
 			/>
 		</article>
 	{/if}
