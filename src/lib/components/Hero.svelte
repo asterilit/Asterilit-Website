@@ -1,37 +1,52 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+	import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
 
-	function getRandomHex() {
-		return Math.floor(Math.random() * 256)
-			.toString(16)
-			.padStart(2, '0');
-	}
+	let words: string[] = ['hello', 'word', 'xcub', 'vanyard', 'asterilit', 'oafa', 'ganshi', 'dravin', '02/03/24'];
 
-	let hexValues: string[] = Array(9).fill('').map(getRandomHex);
+	function wordToHexGrid(word: string): string[] {
+		const encoder = new TextEncoder();
+		let hex = Array
+            .from(encoder.encode(word))
+            .map((b) => b.toString(16).padStart(2, '0'));
+
+        if (hex.length < 9) {
+            while (hex.length < 8) {
+                hex.unshift("00")
+            };
+		    hex.unshift('0x');
+        } else {
+            return [
+                "0x","00","00", 
+                "00","00","00",
+                "00","00","00"
+            ];
+        };
+		return hex;
+	};
+
+	let hexValues: string[] = wordToHexGrid(words[0]);
 
 	onMount(() => {
-		hexValues = hexValues.map(() => getRandomHex());
-
-		hexValues.forEach((_, i) => {
-			setInterval(
-				() => {
-					hexValues[i] = getRandomHex();
-				},
-				Math.random() * 2000 + 1000
-			);
-		});
+		setInterval(
+			() => {
+				const randomWord = words[Math.floor(Math.random() * words.length)];
+				hexValues = wordToHexGrid(randomWord);
+			},
+			Math.random() * 2000 + 1000
+		);
 	});
 
-    const textData = [
-		{ letter: 'A', binary: '01100001' },
-		{ letter: 'S', binary: '01110011' },
-		{ letter: 'T', binary: '01110100' },
-		{ letter: 'E', binary: '01100101' },
-		{ letter: 'R', binary: '01110010' },
-		{ letter: 'I', binary: '01101001' },
-		{ letter: 'L', binary: '01101100' },
-		{ letter: 'I', binary: '01101001' },
-		{ letter: 'T', binary: '01110100' }
+	const textData = [
+		{ letter: 'A', binary: '01100001', id: 1 },
+		{ letter: 'S', binary: '01110011', id: 2 },
+		{ letter: 'T', binary: '01110100', id: 3 },
+		{ letter: 'E', binary: '01100101', id: 4 },
+		{ letter: 'R', binary: '01110010', id: 5 },
+		{ letter: 'I', binary: '01101001', id: 6 },
+		{ letter: 'L', binary: '01101100', id: 7 },
+		{ letter: 'I', binary: '01101001', id: 8 },
+		{ letter: 'T', binary: '01110100', id: 9 }
 	];
 </script>
 
@@ -41,8 +56,13 @@
 		<div
 			class="grid aspect-square w-1/3 grid-cols-3 bg-[linear-gradient(135deg,_#00FF00_10%,_blue_100%)] bg-clip-text text-transparent"
 		>
-			{#each hexValues as hex (hex)}
-				<div class="cell transition-fade text-4xl font-bold">{hex}</div>
+			{#each hexValues as hex, index (index)}
+				<div 
+                    class="cell transition-fade text-4xl font-bold"
+                    in:fade={{ duration: 100 }}
+                    out:fade={{ duration: 100 }}>
+                    {hex}
+                </div>
 			{/each}
 		</div>
 	</section>
@@ -51,7 +71,7 @@
 	<section
 		class="flex h-full w-1/3 flex-col items-center justify-center gap-1.5 bg-[linear-gradient(180deg,_white_10%,_blue_100%)] bg-clip-text text-transparent"
 	>
-		{#each textData as item (item)}
+		{#each textData as item (item.id)}
 			<p class="text-4xl font-semibold">
 				{item.letter}
 				{item.binary}
@@ -66,7 +86,7 @@
 </main>
 
 <style lang="css">
-    .grid {
+	.grid {
 		transition: transform 0.5s ease-in-out;
 	}
 
