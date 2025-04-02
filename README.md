@@ -30,3 +30,17 @@
 
 2. The server will start on the port `5173` by default.\
     You can access it in your browser at `http://localhost:5173`
+
+## ✅ Running the Linter
+
+Ensure code consistency by running :
+
+```bash
+pnpm lint
+```
+
+## 🚀 Building for Production
+
+```bash
+pnpm build
+```
