@@ -4,22 +4,16 @@
 	type Project = {
 		name: string;
 		description: string;
-		logo: string;
-		image: string;
 	};
 
 	const projects: Project[] = [
 		{
 			name: 'Vanyard',
 			description: 'Sigma Sigma boy Sigma boy Sigma boy Sigma Sigma boy Sigma boy',
-			logo: '/images/vanyard-project.png',
-			image: '/images/oafa.png'
 		},
 		{
 			name: 'Xcub',
 			description: 'Sigma Sigma boy Sigma boy Sigma boy ',
-			logo: '/images/xcub-project.png',
-			image: '/images/oafa.png'
 		}
 	];
 
@@ -37,7 +31,7 @@
 <section id="project" class="flex h-screen w-screen flex-row bg-black">
 	<!-- 🟢 Left Side: Project List -->
 	<article class="h-full w-1/3">
-		<ul class="project-wrapper flex h-full w-full flex-col justify-around gap-5">
+		<ul class="project-wrapper flex h-full w-full flex-col justify-evenly">
 			{#each projects as project, index (index)}
 				<li
 					class="m-4 flex h-20 flex-row items-center gap-5 border-b-2 p-2"
@@ -55,30 +49,30 @@
 	{#if selectedProject}
 		<article
 			class="project-preview flex h-full w-2/3 flex-col items-center justify-center p-8 text-center text-white"
-			in:fade={{ duration: 400 }}
 			out:fade={{ duration: 500 }}
 		>
-			<h2 class="inline text-5xl font-bold" in:slide={{ axis: 'y', duration: 300 }}>
-				{selectedProject.name}
-			</h2>
-
-			<p class="mt-4 inline max-w-2xl text-lg" in:fade={{ duration: 400, delay: 100 }}>
-				{selectedProject.description}
-			</p>
-
 			<img
-				src={selectedProject.logo}
+				src={`/images/${selectedProject.name.toLowerCase()}/logo.png`}
 				alt={selectedProject.description}
-				class="mt-6 inline h-auto w-1/2 rounded-lg shadow-lg select-none"
-				in:fly={{ duration: 200, y: 100, delay: 150, opacity: 0 }}
-				out:fly={{ duration: 150, x: 70, delay: 120 }}
+				class="mt-6 inline h-[20svh] aspect-auto rounded-lg shadow-lg select-none"
+				in:fly={{ duration: 200, y: 100, delay: 100, opacity: 0 }}
+				out:fly={{ duration: 150, x: 70, delay: 220 }}
 			/>
+			
+			<div class="p-5 mt-2 bg-blue">
+				<p
+					class="mt-4 inline max-w-2xl text-lg" 
+					in:fade={{ duration: 400, delay: 100 }}>
+					{selectedProject.description}
+				</p>
+			</div>
 
 			<img 
-				src={selectedProject.image}
+				src={`/images/${selectedProject.name.toLowerCase()}/bg.png`}
 				alt={selectedProject.description}
-				class="bg-project h-80 absolute -z-10 aspect-16/9 overflow-hidden"
-				in:fly={{ duration: 175, x: 120, delay: 140, opacity: 0.5 }}
+				class="bg-project h-[40svh] absolute -z-10 object-cover aspect-16/9"
+				in:fly={{ duration: 350, x: 100, opacity: 0 }}
+				out:fly={{ duration: 350, y: 100, opacity: 0, delay: 200 }}
 			>
 		</article>
 	{/if}
@@ -116,8 +110,9 @@
 	.project-preview {
 		perspective: 1000px;
 		perspective-origin: 50% 50%;
+
 		img.bg-project {
-			transform: rotateX(16deg) rotateY(-11deg) rotateZ(6deg) translateX(30%) translateY(-15%) translateZ(0) skewX(0deg) skewY(0deg);
+			transform: rotateX(16deg) rotateY(-11deg) rotateZ(6deg) translateX(20%) translateY(-15%) translateZ(0) skewX(0deg) skewY(0deg);
 		}
 	}
 </style>
