@@ -9,19 +9,19 @@
 		</a>
 	</div>
 
-	<ul class="hidden md:flex h-full items-center space-x-8">
+	<ul class="desktop-nav hidden md:flex justify-around h-full w-1/2 items-center space-x-8">
 		<li>
-            <a href="#project" class="text-white text-lg hover:underline">
+            <a href="#project" class="text-white sm:text-lg lg:text-xl xl:text-2xl">
                 project
             </a>
         </li>
 		<li>
-            <a href="#about" class="text-white text-lg hover:underline">
+            <a href="#about" class="text-white sm:text-lg lg:text-xl xl:text-2xl">
                 about us
             </a>
         </li>
 		<li>
-            <a href="#contact" class="text-white text-lg hover:underline">
+            <a href="#contact" class="text-white sm:text-lg lg:text-xl xl:text-2xl">
                 contact
             </a>
         </li>
@@ -39,7 +39,7 @@
 
 <!-- Mobile Menu -->
 {#if isOpen}
-	<ul class="md:hidden absolute top-20 left-0 z-40 w-full flex flex-col items-center gap-6 bg-black bg-opacity-80 py-6">
+	<ul class="md:hidden fixed pt-20 z-40 w-full flex flex-col items-center gap-6 bg-black bg-opacity-80 py-6">
 		<li>
             <a 
                 href="#project" 
@@ -66,3 +66,25 @@
         </li>
 	</ul>
 {/if}
+
+<style lang="scss">
+    .desktop-nav {
+        a {
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%; 
+                top: 55%; 
+                width: 0;
+                height: 2px;
+                background-color: #00FF00;
+                transition: width 0.15s ease-in-out;
+                transform: translate(-50%, -50%);
+            }
+            &:hover::after {
+                width: 100%;
+            }
+        }
+    }
+</style>
