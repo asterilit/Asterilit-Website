@@ -4,6 +4,7 @@
 	type Project = {
 		name: string;
 		description: string;
+		logo: string;
 		image: string;
 	};
 
@@ -11,12 +12,14 @@
 		{
 			name: 'Vanyard',
 			description: 'Sigma Sigma boy Sigma boy Sigma boy Sigma Sigma boy Sigma boy',
-			image: '/images/vanyard-project.png'
+			logo: '/images/vanyard-project.png',
+			image: '/images/oafa.png'
 		},
 		{
 			name: 'Xcub',
 			description: 'Sigma Sigma boy Sigma boy Sigma boy ',
-			image: '/images/xcub-project.png'
+			logo: '/images/xcub-project.png',
+			image: '/images/oafa.png'
 		}
 	];
 
@@ -64,12 +67,19 @@
 			</p>
 
 			<img
-				src={selectedProject.image}
+				src={selectedProject.logo}
 				alt={selectedProject.description}
 				class="mt-6 inline h-auto w-1/2 rounded-lg shadow-lg select-none"
 				in:fly={{ duration: 200, y: 100, delay: 150, opacity: 0 }}
 				out:fly={{ duration: 150, x: 70, delay: 120 }}
 			/>
+
+			<img 
+				src={selectedProject.image}
+				alt={selectedProject.description}
+				class="bg-project h-80 absolute -z-10 aspect-16/9 overflow-hidden"
+				in:fly={{ duration: 175, x: 120, delay: 140, opacity: 0.5 }}
+			>
 		</article>
 	{/if}
 </section>
@@ -100,6 +110,14 @@
 				height: 2px;
 				background: linear-gradient(90deg, white 0%, blue 50%, black 100%);
 			}
+		}
+	}
+
+	.project-preview {
+		perspective: 1000px;
+		perspective-origin: 50% 50%;
+		img.bg-project {
+			transform: rotateX(16deg) rotateY(-11deg) rotateZ(6deg) translateX(30%) translateY(-15%) translateZ(0) skewX(0deg) skewY(0deg);
 		}
 	}
 </style>
