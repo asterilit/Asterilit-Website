@@ -9,7 +9,7 @@
 	const projects: Project[] = [
 		{
 			name: 'Vanyard',
-			description: 'Sigma Sigma boy Sigma boy Sigma boy Sigma Sigma boy Sigma boy',
+			description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro nam temporibus vero dolorum quo, nihil pariatur obcaecati, quod ea, incidunt quasi! Mollitia saepe distinctio recusandae, eos voluptatem ullam dolore. Porro doloribus aut commodi quaerat ullam dolores unde sit. Amet, aspernatur sed non beatae aperiam reiciendis soluta ut libero praesentium eligendi?',
 		},
 		{
 			name: 'Xcub',
@@ -59,7 +59,7 @@
 				out:fly={{ duration: 150, x: 70, delay: 220 }}
 			/>
 			
-			<div class="p-5 mt-2 bg-blue">
+			<div class="p-5 w-[90%]">
 				<p
 					class="mt-4 inline max-w-2xl text-lg" 
 					in:fade={{ duration: 400, delay: 100 }}>
@@ -110,9 +110,9 @@
 	.project-preview {
 		perspective: 1000px;
 		perspective-origin: 50% 50%;
-
+		
 		img.bg-project {
-			transform: rotateX(16deg) rotateY(-11deg) rotateZ(6deg) translateX(20%) translateY(-15%) translateZ(0) skewX(0deg) skewY(0deg);
+			transform: rotateX(16deg) rotateY(-11deg) rotateZ(6deg) translateX(20%) translateY(-15%);
 		}
 	}
 </style>
