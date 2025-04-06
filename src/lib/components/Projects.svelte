@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade, slide, fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 
 	type Project = {
 		name: string;
@@ -9,11 +9,11 @@
 	const projects: Project[] = [
 		{
 			name: 'Vanyard',
-			description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro nam temporibus vero dolorum quo, nihil pariatur obcaecati, quod ea, incidunt quasi! Mollitia saepe distinctio recusandae, eos voluptatem ullam dolore. Porro doloribus aut commodi quaerat ullam dolores unde sit. Amet, aspernatur sed non beatae aperiam reiciendis soluta ut libero praesentium eligendi?',
+			description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corrupti?',
 		},
 		{
 			name: 'Xcub',
-			description: 'Sigma Sigma boy Sigma boy Sigma boy ',
+			description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corrupti?',
 		}
 	];
 
@@ -28,7 +28,7 @@
 	}
 </script>
 
-<section id="project" class="flex h-screen w-screen flex-row bg-black">
+<section id="projects" class="flex h-screen w-screen flex-row bg-black">
 	<!-- 🟢 Left Side: Project List -->
 	<article class="h-full w-1/3">
 		<ul class="project-wrapper flex h-full w-full flex-col justify-evenly">
@@ -112,7 +112,7 @@
 		perspective-origin: 50% 50%;
 		
 		img.bg-project {
-			transform: rotateX(16deg) rotateY(-11deg) rotateZ(6deg) translateX(20%) translateY(-15%);
+			transform: rotateX(10deg) rotateY(-25deg) rotateZ(5deg) translateX(20%) translateY(-15%);
 		}
 	}
 </style>
