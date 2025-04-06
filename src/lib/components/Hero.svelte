@@ -79,7 +79,7 @@
 		<div
 			class="flex flex-col gap-2 bg-[linear-gradient(180deg,_white_5%,_blue_100%)] bg-clip-text text-transparent"
 		>
-			{#each textData as item (item.id)}
+			{#each textData as item, index (index * item.id)}
 				<p class="text-4xl font-semibold">
 					{item.letter}
 					{item.binary}
