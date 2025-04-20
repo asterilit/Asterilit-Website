@@ -48,6 +48,12 @@
 
 <style lang="scss">
 	section {
+		a {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		
 		&:not(:nth-child(1)) {
 			background-position: 0% 50% !important;
 			background-repeat: no-repeat;
