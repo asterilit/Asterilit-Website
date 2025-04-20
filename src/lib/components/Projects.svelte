@@ -9,11 +9,11 @@
 	const projects: Project[] = [
 		{
 			name: 'Vanyard',
-			description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corrupti?',
+			description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corrupti?'
 		},
 		{
 			name: 'Xcub',
-			description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corrupti?',
+			description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corrupti?'
 		}
 	];
 
@@ -39,7 +39,7 @@
 					on:mouseleave={clearProject}
 				>
 					<img src="/icons/prompt.svg" alt="" class="h-12 select-none" />
-					<p class="text-2xl text-white">{project.name}</p>
+					<p class="text-2xl">{project.name}</p>
 				</li>
 			{/each}
 		</ul>
@@ -48,32 +48,30 @@
 	<!-- 🔵 Right Side: Project Details -->
 	{#if selectedProject}
 		<article
-			class="project-preview flex h-full w-2/3 flex-col items-center justify-center p-8 text-center text-white"
+			class="project-preview flex h-full w-2/3 flex-col items-center justify-center p-8 text-center"
 			out:fade={{ duration: 500 }}
 		>
 			<img
 				src={`/images/${selectedProject.name.toLowerCase()}/logo.png`}
 				alt={selectedProject.description}
-				class="mt-6 inline h-[20svh] aspect-auto rounded-lg shadow-lg select-none"
+				class="mt-6 inline aspect-auto h-[20svh] rounded-lg shadow-lg select-none"
 				in:fly={{ duration: 200, y: 100, delay: 100, opacity: 0 }}
 				out:fly={{ duration: 150, x: 70, delay: 220 }}
 			/>
-			
-			<div class="p-5 w-[90%]">
-				<p
-					class="mt-4 inline max-w-2xl text-lg" 
-					in:fade={{ duration: 400, delay: 100 }}>
+
+			<div class="w-[90%] p-5">
+				<p class="mt-4 inline max-w-2xl text-lg" in:fade={{ duration: 400, delay: 100 }}>
 					{selectedProject.description}
 				</p>
 			</div>
 
-			<img 
+			<img
 				src={`/images/${selectedProject.name.toLowerCase()}/bg.png`}
 				alt={selectedProject.description}
-				class="bg-project h-[40svh] absolute -z-10 object-cover aspect-16/9"
+				class="bg-project absolute -z-10 aspect-16/9 h-[40svh] object-cover"
 				in:fly={{ duration: 350, x: 100, opacity: 0 }}
 				out:fly={{ duration: 350, y: 100, opacity: 0, delay: 200 }}
-			>
+			/>
 		</article>
 	{/if}
 </section>
@@ -110,7 +108,7 @@
 	.project-preview {
 		perspective: 1000px;
 		perspective-origin: 50% 50%;
-		
+
 		img.bg-project {
 			transform: rotateX(10deg) rotateY(-25deg) rotateZ(5deg) translateX(20%) translateY(-15%);
 		}
