@@ -3,7 +3,7 @@
 </script>
 
 <nav
-	class="fixed z-50 flex h-20 w-screen flex-row items-center justify-between bg-gradient-to-b from-black via-black to-transparent px-4"
+	class="fixed z-100 flex h-20 w-screen flex-row items-center justify-between bg-gradient-to-b from-black via-black to-transparent px-4"
 >
 	<div class="flex h-full items-center">
 		<a href="/" draggable="false" class="aspect-square max-h-full">
@@ -18,13 +18,13 @@
 
 	<ul class="desktop-nav hidden h-full w-1/2 items-center justify-around space-x-8 md:flex">
 		<li>
-			<a href="#projects" class=" sm:text-lg lg:text-xl xl:text-2xl"> projects </a>
+			<a href="#projects" class="sm:text-lg lg:text-xl xl:text-2xl">projects</a>
 		</li>
 		<li>
-			<a href="#about" class=" sm:text-lg lg:text-xl xl:text-2xl"> about us </a>
+			<a href="#about" class="sm:text-lg lg:text-xl xl:text-2xl">about us</a>
 		</li>
 		<li>
-			<a href="#contact" class=" sm:text-lg lg:text-xl xl:text-2xl"> contact </a>
+			<a href="#contact" class="sm:text-lg lg:text-xl xl:text-2xl">contact</a>
 		</li>
 	</ul>
 
