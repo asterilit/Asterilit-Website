@@ -48,15 +48,15 @@
 	});
 
 	const textData = [
-		{ letter: 'A', binary: '01100001', id: 1 },
-		{ letter: 'S', binary: '01110011', id: 2 },
-		{ letter: 'T', binary: '01110100', id: 3 },
-		{ letter: 'E', binary: '01100101', id: 4 },
-		{ letter: 'R', binary: '01110010', id: 5 },
-		{ letter: 'I', binary: '01101001', id: 6 },
-		{ letter: 'L', binary: '01101100', id: 7 },
-		{ letter: 'I', binary: '01101001', id: 8 },
-		{ letter: 'T', binary: '01110100', id: 9 }
+		{ letter: 'A', binary: '01100001' },
+		{ letter: 'S', binary: '01110011' },
+		{ letter: 'T', binary: '01110100' },
+		{ letter: 'E', binary: '01100101' },
+		{ letter: 'R', binary: '01110010' },
+		{ letter: 'I', binary: '01101001' },
+		{ letter: 'L', binary: '01101100' },
+		{ letter: 'I', binary: '01101001' },
+		{ letter: 'T', binary: '01110100' }
 	];
 </script>
 
@@ -79,7 +79,7 @@
 		<div
 			class="flex flex-col gap-2 bg-[linear-gradient(180deg,_white_5%,_blue_100%)] bg-clip-text text-transparent"
 		>
-			{#each textData as item, index (index * item.id)}
+			{#each textData as item, index (index)}
 				<p class="text-4xl font-semibold">
 					{item.letter}
 					{item.binary}
