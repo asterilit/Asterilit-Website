@@ -39,7 +39,7 @@
 					on:mouseleave={clearProject}
 				>
 					<img src="/icons/prompt.svg" alt="" class="h-12 select-none" />
-					<p class="text-2xl">{project.name}</p>
+					<p class="text-2xl text-white">{project.name}</p>
 				</li>
 			{/each}
 		</ul>
@@ -82,6 +82,7 @@
 			position: relative;
 			padding-bottom: 1em;
 			transition: all 0.3s cubic-bezier(0, 1.5, 1, 1.5);
+			color: transparent;
 
 			&:hover {
 				cursor: pointer;
