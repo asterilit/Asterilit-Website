@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:lts-slim AS builder
+FROM node:22.15.0-alpine3.21  AS builder
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ ENV PATH="./node_modules/.bin:$PATH"
 RUN pnpm build
 
 # Stage 2: Run
-FROM node:lts-slim AS runner
+FROM node:22.15.0-alpine3.21  AS runner
 
 WORKDIR /app
 
