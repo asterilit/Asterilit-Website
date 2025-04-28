@@ -23,7 +23,7 @@
 			>
 				<h3 class="text-4xl">laiso</h3>
 			</div>
-			<p class="text-end">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+			<p class="text-end">Lorem ipsum dolor sit</p>
 		</div>
 	</article>
 
@@ -37,7 +37,7 @@
 			>
 				<h3 class="text-4xl">LIKE_Creep</h3>
 			</div>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+			<p>Lorem ipsum dolor sit</p>
 		</div>
 
 		<div class="flex h-full w-1/2 items-center justify-end">
