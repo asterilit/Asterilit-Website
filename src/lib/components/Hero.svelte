@@ -67,7 +67,9 @@
 			class="grid aspect-square w-1/3 grid-cols-3 bg-[linear-gradient(135deg,_#00FF00_10%,_blue_100%)] bg-clip-text text-transparent"
 		>
 			{#each hexValues as hex, index (hex + index)}
-				<div class="cell flex h-16 w-16 items-center justify-center font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
+				<div
+					class="cell flex h-16 w-16 items-center justify-center font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl"
+				>
 					{hex}
 				</div>
 			{/each}

@@ -3,7 +3,7 @@ services:
     build: .
     container_name: asterilit_website
     ports:
-      - "4321:3000"
+      - '4321:3000'
 
     environment:
       - NODE_ENV=production
