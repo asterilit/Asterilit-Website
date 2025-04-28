@@ -67,7 +67,7 @@
 			class="grid aspect-square w-1/3 grid-cols-3 bg-[linear-gradient(135deg,_#00FF00_10%,_blue_100%)] bg-clip-text text-transparent"
 		>
 			{#each hexValues as hex, index (hex + index)}
-				<div class="cell flex h-16 w-16 items-center justify-center text-4xl font-bold">
+				<div class="cell flex h-16 w-16 items-center justify-center font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
 					{hex}
 				</div>
 			{/each}
@@ -80,7 +80,7 @@
 			class="flex flex-col gap-2 bg-[linear-gradient(180deg,_white_5%,_blue_100%)] bg-clip-text text-transparent"
 		>
 			{#each textData as item, index (index)}
-				<p class="text-4xl font-semibold">
+				<p class="font-semibold sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">
 					{item.letter}
 					{item.binary}
 				</p>
