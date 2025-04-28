@@ -1,20 +1,33 @@
-# Use the official Node.js image
-FROM node:20
+# Stage 1: Build
+FROM node:lts-slim AS builder
 
-# Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Install git
-RUN apt-get update && apt-get install -y git
+RUN npm install -g pnpm
 
-# Clone the repo
-RUN git clone https://github.com/asterilit/Asterilit-Website.git . 
+COPY package.json pnpm-lock.yaml ./
 
-# Install Node.js dependencies
-RUN npm install
+RUN pnpm install
 
-# Expose the app port
+COPY . .
+ENV PATH="./node_modules/.bin:$PATH"
+
+RUN pnpm build
+
+# Stage 2: Run
+FROM node:lts-slim AS runner
+
+WORKDIR /app
+
+RUN npm install -g pnpm
+
+# Copy only package files and install production deps
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --prod --frozen-lockfile
+
+# Copy the built output
+COPY --from=builder /app/build ./build
+
 EXPOSE 3000
 
-# Start the web server
-CMD ["npm", "start"]
+CMD ["node", "build"]

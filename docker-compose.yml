@@ -1,11 +1,11 @@
-version: "3.8"
-
 services:
   web:
     build: .
     container_name: asterilit_website
     ports:
-      - "3000:3000"
+      - "4321:3000"
+
     environment:
       - NODE_ENV=production
+
     restart: always
